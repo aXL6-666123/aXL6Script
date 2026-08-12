@@ -1,0 +1,158 @@
+local _version = "1.6.66"
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. _version .. "/main.lua"))()
+
+local Window = WindUI:CreateWindow({
+    Title = "C-R-D-D┃A6 Hub",
+    Icon = "door-open",
+    Author = "by aXL6",
+    Folder = "A6 Hub[请勿删除]",
+    Size = UDim2.fromOffset(800, 525),
+    Transparent = true,
+    Theme = "Indigo",
+    HideSearchBar = false,
+    BackgroundImageTransparency = 0.5,
+    Background = "rbxassetid://4967342899",
+})
+
+Window:Tag({
+    Title = "永久免费",
+    Color = Color3.fromRGB(100, 200, 100)
+})
+
+local Tab = Window:Tab({
+    Title = "通知",
+    Icon = "bird",
+    ShowTabTitle = true,
+})
+
+Tab:Paragraph({
+    Title = "公告",
+    Desc = "欢迎使用此脚本!"
+})
+
+Tab:Paragraph({
+    Title = "更新",
+    Desc = "增加服务器:不需要安全保护!"
+})
+
+Tab:Paragraph({
+    Title = "警告同行",
+    Desc = "偷源码死全家全家送进火葬场😂😂😂"
+})
+
+local Tab = Window:Tab({
+    Title = "主页",
+    Icon = "bird",
+    ShowTabTitle = true,
+})
+
+local Tab = Window:Tab({
+    Title = "脚本",
+    Icon = "bird",
+    ShowTabTitle = true,
+})
+
+local Tab = Window:Tab({
+    Title = "通用",
+    Icon = "bird",
+    ShowTabTitle = true,
+})
+
+Window:Divider()
+
+local section = Window:Section({
+    Title = "目前支持1个服务器"
+})
+local Tab = section:Tab({ Title = "不需要安全保护!" })
+local Section = Tab:Section({
+    Title = "主要功能"
+})
+
+Section:Button({
+    Title = "绕过反作弊(反作弊还在找所以暂时没有用😰)",
+    Callback = function()
+        
+    end
+})
+
+Section:Button({
+    Title = "通关",
+    Callback = function()
+        local a = game:GetService("Players").LocalPlayer local b = a.Character or a.CharacterAdded:Wait() local c = b:WaitForChild("HumanoidRootPart") local function getCFrame(obj) return obj:IsA("Model") and obj:GetPivot() or obj.CFrame end local bobux = workspace:WaitForChild("map"):WaitForChild("entities"):WaitForChild("bobux") local exitSpawn = workspace.map.entities.exit.spawn c.CFrame = getCFrame(bobux) task.wait(0.25) c.CFrame = getCFrame(exitSpawn)
+    end
+})
+
+local Section = Tab:Section({
+    Title = "传送功能"
+})
+
+Section:Button({
+    Title = "传送到建筑师的位置",
+    Callback = function()
+        local Players = game:GetService("Players") local lp = Players.LocalPlayer local char = lp.Character or lp.CharacterAdded:Wait() local root = char:WaitForChild("HumanoidRootPart") for _, p in Players:GetPlayers() do if p ~= lp and p.Character and p.Character:FindFirstChild("hammer", true) then local hrp = p.Character:FindFirstChild("HumanoidRootPart") if hrp then root.CFrame = hrp.CFrame break end end end
+    end
+})
+
+Section:Button({
+    Title = "传送到bobux的位置",
+    Callback = function()
+        local player = game:GetService("Players").LocalPlayer local character = player.Character or player.CharacterAdded:Wait() local hrp = character:WaitForChild("HumanoidRootPart") local function getCFrame(obj) return obj:IsA("Model") and obj:GetPivot() or obj.CFrame end local bobux = workspace:WaitForChild("map"):WaitForChild("entities"):WaitForChild("bobux") hrp.CFrame = getCFrame(bobux)
+    end
+})
+
+Section:Button({
+    Title = "传送到exitSpawn的位置",
+    Callback = function()
+        local player = game:GetService("Players").LocalPlayer local character = player.Character or player.CharacterAdded:Wait() local hrp = character:WaitForChild("HumanoidRootPart") local function getCFrame(obj) return obj:IsA("Model") and obj:GetPivot() or obj.CFrame end local exitSpawn = workspace.map.entities.exit.spawn hrp.CFrame = getCFrame(exitSpawn)
+    end
+})
+
+local Section = Tab:Section({
+    Title = "噪音"
+})
+
+Section:Paragraph({
+    Title = "注",
+    Desc = "自己看看哪个有效果因为每个服务器的方法都不一样"
+})
+
+local noiseActive = false
+
+Section:Button({
+    Title = "停止播放噪音(等5秒左右噪音才会消失)",
+    Callback = function()
+        noiseActive = false
+    end
+})
+
+Section:Button({
+    Title = "播放噪音(A)",
+    Callback = function()
+        noiseActive = true
+        local args = { { { toggles = {}, name = "smallcrate", skin = "default", cframe = CFrame.new(0, 160, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), plr = game:GetService("Players").LocalPlayer }, "\a" } } task.spawn(function() while noiseActive do game:GetService("ReplicatedStorage"):WaitForChild("BridgeNet2"):WaitForChild("dataRemoteEvent"):FireServer(unpack(args)) wait(0.1) end end)
+    end
+})
+
+Section:Button({
+    Title = "播放噪音(B)",
+    Callback = function()
+        noiseActive = true
+        local args = { { { toggles = {}, name = "smallcrate", skin = "default", cframe = CFrame.new(0, 160, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), plr = game:GetService("Players").LocalPlayer }, "\b" } } task.spawn(function() while noiseActive do game:GetService("ReplicatedStorage"):WaitForChild("BridgeNet2"):WaitForChild("dataRemoteEvent"):FireServer(unpack(args)) wait(0.1) end end)
+    end
+})
+
+Section:Button({
+    Title = "播放噪音(C)",
+    Callback = function()
+        noiseActive = true
+        local args = { { { toggles = {}, name = "smallcrate", skin = "default", cframe = CFrame.new(0, 160, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), plr = game:GetService("Players").LocalPlayer }, "\t" } } task.spawn(function() while noiseActive do game:GetService("ReplicatedStorage"):WaitForChild("BridgeNet2"):WaitForChild("dataRemoteEvent"):FireServer(unpack(args)) wait(0.1) end end)
+    end
+})
+
+Section:Button({
+    Title = "播放噪音(D)",
+    Callback = function()
+        noiseActive = true
+        local args = { { { toggles = {}, name = "smallcrate", skin = "default", cframe = CFrame.new(0, 160, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), plr = game:GetService("Players").LocalPlayer }, "\006" } } task.spawn(function() while noiseActive do game:GetService("ReplicatedStorage"):WaitForChild("BridgeNet2"):WaitForChild("dataRemoteEvent"):FireServer(unpack(args)) wait(0.1) end end)
+    end
+})
