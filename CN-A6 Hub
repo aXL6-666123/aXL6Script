@@ -1,4 +1,4 @@
---- 永久免费并开源
+--- 永久免费并且开源
 local _version = "1.6.66"
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. _version .. "/main.lua"))()
 
@@ -29,6 +29,11 @@ local Tab = Window:Tab({
 Tab:Paragraph({
     Title = "公告",
     Desc = "欢迎使用A6脚本!"
+})
+
+Tab:Paragraph({
+    Title = "公告",
+    Desc = "永久免费并且开源"
 })
 
 Tab:Paragraph({
